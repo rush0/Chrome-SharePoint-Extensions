@@ -3,9 +3,12 @@
   "version": "1.0",
   "description": "SharePoint Development Utilities.",
   "browser_action": {
-    "default_icon": "icon.png"
+    "default_icon": "icon.png",
+    "popup": "index.html"
   },
-  "permissions": [
-    ""
-  ]
+  "content_scripts":[{
+  "matches": ["http://*/*", "https://*/*"],
+  "js": ["sputils.js"]
+  }],
+"permissions": ["tabs", "http://*/*", "https://*/*"]
 }

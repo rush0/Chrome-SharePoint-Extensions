@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+body {
+  min-width:357px;
+  overflow-x:hidden;
+}
+</style>
+<script type="text/javascript">
+function GetInternalFieldNames(){
+	chrome.tabs.executeScript(null, {file: "sputils.js"});
+
+chrome.extension.onRequest.addListener(
+function(request, sender, sendResponse){
+        document.getElementById("results").innerHTML = request.listMarkup;
+        sendResponse({}); // cleanup   
+    }
+);
+
+}
+
+
+</script>
+</head>
+<body>
+	<h1>-SP Utilties-</h1>
+	
+	<input type="button" value="Get Internal Field Names" onclick="GetInternalFieldNames();"/>
+	<div id="results"></div>
+</body>
+</html>
